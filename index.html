@@ -1,0 +1,173 @@
+<?php
+  include("connection.php");
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MJI Photography</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="loading">
+        <div id="spinner"></div>
+    </div>
+    <div id="magnify">
+        <h1 onclick="closemagnify()"><i class="fas fa-times"></i></h1>
+        <div id="img_here"></div>
+    </div>
+    
+    <header id="header" class="animated slideInDown" style="animation-delay:1.8s;">
+        <table>
+            <tr>
+                <td id="logo"><img src="img/logo.png" style="height: 80px; z-index: 555; position: absolute; top: 14%;" alt="" srcset=""></td>
+                <td id="navigation">
+                    <a href="#work">Gallery</a>
+                    <a href="#bio">About</a>
+                    <a href="#team">Team</a>
+                    <a href="#contact">Contact</a>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <table id="top_part">
+        <tr>
+            <td id="about" class="animated slideInLeft" style="animation-delay:2s;">
+                <h1>Clicking precious moments.</h1>
+                <a href="#contact"><button class="btn_one">Contact Us</button></a><br>
+                <table>
+                    <tr>
+                        <td class="animated zoomIn" style="animation-delay:2.2s;"><a class="social"><i class="fab fa-facebook"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:2.4s;"><a class="social"><i class="fab fa-twitter"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:2.6s;"><a class="social"><i class="fab fa-instagram"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:2.8s;"><a class="social"><i class="fab fa-google"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:3.0s;"><a class="social"><i class="fab fa-telegram-plane"></i></a></td>
+                    </tr>
+                </table>
+            </td>
+            <td id="rightImage" class="animated jackInTheBox" style="animation-delay:2.2s;"></td>
+        </tr>
+    </table>
+    <div id="work">
+        <h1>Gallery</h1>
+        <div id="photos">
+            <img onclick="magnify($(this).attr('src'))" src="img/1.jpg">
+            <img onclick="magnify($(this).attr('src'))" src="img/2.jpg">
+            <img onclick="magnify($(this).attr('src'))" src="img/4.jpg">
+            <img onclick="magnify($(this).attr('src'))" src="img/3.jpg">
+            <img onclick="magnify($(this).attr('src'))" src="img/5.jpg">
+            <img onclick="magnify($(this).attr('src'))" src="img/6.jpg">
+            <img onclick="magnify($(this).attr('src'))" src="img/7.jpg">
+            <img onclick="magnify($(this).attr('src'))" src="img/8.jpg">
+            <img onclick="magnify($(this).attr('src'))" src="img/9.jpg">
+        </div>
+    </div>
+    <div id="bio">
+        <h1>About</h1>
+        <p>
+            At M&J Photography, we believe that every moment is worth capturing and cherishing. We are a passionate team of photographers dedicated to capturing the beauty, emotions, and essence of special moments in people's lives.
+        </p>
+        <p>
+            Beyond capturing beautiful images, we also understand the importance of delivering a seamless and enjoyable experience for our clients. From the moment you book our services until the final delivery of your photographs, we ensure open communication, timely delivery, and exceptional customer service.
+        </p>
+    </div>
+    <div id="team">
+        <h1>Team</h1>
+        <div class="flex">
+            <div class="card">
+                <img src="img/joy.jpg" alt="Image" class="card-image">
+                <div class="card-content">
+                <h3 class="card-title">Joy Loren</h3>
+                <p class="card-description">Photographer</p>
+                <table>
+                    <tr>
+                        <td class="animated zoomIn" style="animation-delay:2.2s;"><a class="social" href="https://www.facebook.com/joylluay"><i class="fab fa-facebook"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:2.4s;"><a class="social"><i class="fab fa-twitter"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:2.6s;"><a class="social"><i class="fab fa-instagram"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:2.8s;"><a class="social"><i class="fab fa-google"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:3.0s;"><a class="social"><i class="fab fa-telegram-plane"></i></a></td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/mig.jpg" alt="Image" class="card-image">
+                <div class="card-content">
+                <h3 class="card-title">Miguel Louiss</h3>
+                <p class="card-description">Editor</p>
+                <table>
+                    <tr>
+                        <td class="animated zoomIn" style="animation-delay:2.2s;"><a class="social" href="https://www.facebook.com/miglouiss/"><i class="fab fa-facebook"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:2.4s;"><a class="social"><i class="fab fa-twitter"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:2.6s;"><a class="social"><i class="fab fa-instagram"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:2.8s;"><a class="social"><i class="fab fa-google"></i></a></td>
+                        <td class="animated zoomIn" style="animation-delay:3.0s;"><a class="social"><i class="fab fa-telegram-plane"></i></a></td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <h1>Contact</h1>
+            <table>
+                <tr>
+                    <td>
+                        <div id="inner_div">
+                            <table id="inner_table">
+                                <tr>
+                                    <td><i class="fas fa-phone"></i> &nbsp; +63 956 566 5140</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-phone"></i> &nbsp; +63 956 566 5140</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-at"></i> &nbsp; miguel11ignacio23@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-map-marker-alt"></i>
+                                    <div id="address">
+                                        Lancaster, Alapan 2A,<br>
+                                        Imus city, Cavite,<br>
+                                        Philippines
+                                    </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="social"><i class="fab fa-facebook"></i></a>
+                                        <a class="social"><i class="fab fa-twitter"></i></a>
+                                        <a class="social"><i class="fab fa-instagram"></i></a>
+                                        <a class="social"><i class="fab fa-dribbble"></i></a>
+                                        <a class="social"><i class="fab fa-medium"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>
+                        <form method="post" action="email.php">
+                            <input type="text" placeholder="name" name="name" required>
+                            <input type="email" placeholder="email" name="email" required><br>
+                            <textarea placeholder="your message" name="message" required rows="5"></textarea><br>
+                            <button type="submit" class="btn_one" name="send">send</button>
+                        </form> 
+
+                       
+                   
+        
+                    </td>
+                </tr>
+            </table>
+    </div>
+    <script src="index.js" type="text/javascript"></script>
+</body>
+</html>
